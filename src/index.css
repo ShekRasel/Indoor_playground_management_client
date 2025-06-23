@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --color-pink: #be2469;
+  --color-gray: #a6adba;
+  --color-blue: #182b62;
+  --color-black: #242933;
+  --color-white: #ffffff;
+  --color-darkBlue: #2a303c;
+  --color-violet: #6419e6;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--color-darkBlue);
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  .container {
+    margin: auto;
+    padding: 1rem;
+  }
+}
