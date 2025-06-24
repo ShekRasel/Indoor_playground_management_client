@@ -1,0 +1,48 @@
+import { DashBoardLayout } from "src/layouts/customer.dashboard.layout";
+import { NotFound } from "src/pages/404";
+import { About } from "src/pages/about";
+import { BookedIndoor } from "src/pages/booking/booked.indoor";
+import { Contact } from "src/pages/contact";
+// import { BookedIndoor } from "src/pages/booking/booked.indoor";
+import { Home } from "src/pages/home";
+import { Profile } from "src/pages/profile";
+
+export const customerRoutes = [
+  {
+    name: "mainlayout",
+    path: "/",
+    element: <DashBoardLayout />,
+    children: [
+      {
+        name: "home",
+        path: "",
+        element: <Home />,
+      },
+      {
+        name: "about",
+        path: "/dashboard/about",
+        element: <About />,
+      },
+      {
+        name: "profile",
+        path: "/dashboard/profile",
+        element: <Profile />,
+      },
+      {
+        name: "contact",
+        path: "/dashboard/contact",
+        element: <Contact />,
+      },
+      {
+        name: "book_details",
+        path: "/book_details/:slug",
+        element: <BookedIndoor />,
+      },
+      {
+        name: "*",
+        path: "",
+        element: <NotFound />,
+      },
+    ],
+  },
+];

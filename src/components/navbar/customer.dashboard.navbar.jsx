@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useClickOutSite } from "src/hooks/click.outside";
 import { Assets } from "src/utils/assets";
 import { SecondaryButton } from "src/components/buttons/secondary.button";
-import { removeToken } from "src/utils/helper";
+import { removeToken, removeUser } from "src/utils/helper";
 import { PrimaryButton } from "src/components/buttons/primary.button";
 
 export const DashboardNavbar = () => {
@@ -25,13 +25,15 @@ export const DashboardNavbar = () => {
   //routes
   const dashboardNavUrl = [
     { name: "Home", link: "/" },
-    { name: "Profile", link: "/profile" },
-    { name: "Booked_Ground", link: "/Booked_Ground" },
+    { name: "About Us", link: "/dashboard/about" },
+    { name: "Contact", link: "/dashboard/contact" },
+    { name: "Profile", link: "/dashboard/profile" },
   ];
 
   //logout
   const logout = () => {
     removeToken();
+    removeUser();
     window.location.reload();
   };
 
@@ -63,7 +65,9 @@ export const DashboardNavbar = () => {
             ))}
 
             {/* logout button */}
-            <PrimaryButton onclick={logout}>Logout</PrimaryButton>
+            <PrimaryButton onclick={logout} className="!bg-none">
+              Logout
+            </PrimaryButton>
           </div>
         )}
       </div>
@@ -93,7 +97,9 @@ export const DashboardNavbar = () => {
         ))}
 
         {/* logout button */}
-        <SecondaryButton onclick={logout}>Logout</SecondaryButton>
+        <SecondaryButton onclick={logout} className="!bg-none">
+          Logout
+        </SecondaryButton>
       </div>
     </div>
   );

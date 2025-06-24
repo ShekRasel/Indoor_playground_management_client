@@ -1,12 +1,23 @@
-import { getToken } from "src/utils/helper";
-import { privateRotues } from "./private.routes";
-import { commonRoutes } from "./common.routes";
+import { getToken, getUser } from "src/utils/helper";
+import { publicRoutes } from "./public.routes";
+import { customerRoutes } from "./customer.routes";
+import { adminRoutes } from "./admin.routes";
+import { staffRoutes } from "./staff.routes";
 
 export const appRoutes = () => {
   const token = getToken();
-  if (token) {
-    return privateRotues;
-  } else {
-    return commonRoutes;
+  const user = getUser();
+
+  if (!token || !user) {
+    return publicRoutes;
   }
+
+  if (!user.role) {
+    return customerRoutes;
+  }
+
+  if (user.roleId === 101) {
+    return adminRoutes;
+  }
+  return staffRoutes;
 };
