@@ -4,9 +4,9 @@ import { Navbar } from "src/components/navbar/public.navbar";
 
 export const MainLayout = () => {
   return (
-    <Fragment>
+    <div className="container">
       <Navbar />
       <Outlet />
-    </Fragment>
+    </div>
   );
 };

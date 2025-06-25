@@ -4,7 +4,7 @@ import { DashboardNavbar } from "src/components/navbar/customer.dashboard.navbar
 
 export const DashBoardLayout = () => {
   return (
-    <div>
+    <div className="container">
       <DashboardNavbar />
       <Outlet />
     </div>

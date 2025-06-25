@@ -7,7 +7,7 @@ const App = () => {
 
   return (
     <>
-      <div className="container">{routes}</div>
+      <div className="">{routes}</div>
       <ToastContainer position="top-right" autoClose={3000} />;
     </>
   );

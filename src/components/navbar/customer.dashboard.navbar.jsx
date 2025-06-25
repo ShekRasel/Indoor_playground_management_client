@@ -1,15 +1,17 @@
 import React, { useRef, useState } from "react";
 import { HiOutlineBars3CenterLeft } from "react-icons/hi2";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useClickOutSite } from "src/hooks/click.outside";
 import { Assets } from "src/utils/assets";
 import { SecondaryButton } from "src/components/buttons/secondary.button";
 import { removeToken, removeUser } from "src/utils/helper";
 import { PrimaryButton } from "src/components/buttons/primary.button";
+import { FaClipboardCheck } from "react-icons/fa6";
 
 export const DashboardNavbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const divRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleMenuOpenClose = () => {
     setIsMobileMenuOpen((prev) => !prev);
@@ -34,7 +36,7 @@ export const DashboardNavbar = () => {
   const logout = () => {
     removeToken();
     removeUser();
-    window.location.reload();
+    navigate("/");
   };
 
   return (
@@ -81,7 +83,7 @@ export const DashboardNavbar = () => {
       />
 
       {/* desktop view */}
-      <div className="gap-2 hidden lg:flex text-gray ">
+      <div className="space-x-3 hidden lg:flex text-gray items-center">
         {dashboardNavUrl.map((nav) => (
           <NavLink
             to={nav.link}
@@ -95,6 +97,11 @@ export const DashboardNavbar = () => {
             {nav.name}
           </NavLink>
         ))}
+
+        {/* total booked*/}
+        <Link to="/dashboard/total_booked">
+          <FaClipboardCheck  size={20}/>
+        </Link>
 
         {/* logout button */}
         <SecondaryButton onclick={logout} className="!bg-none">

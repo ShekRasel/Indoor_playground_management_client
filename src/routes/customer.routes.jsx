@@ -2,6 +2,7 @@ import { DashBoardLayout } from "src/layouts/customer.dashboard.layout";
 import { NotFound } from "src/pages/404";
 import { About } from "src/pages/about";
 import { BookedIndoor } from "src/pages/booking/booked.indoor";
+import { TotalBooked } from "src/pages/booking/total.booked";
 import { Contact } from "src/pages/contact";
 // import { BookedIndoor } from "src/pages/booking/booked.indoor";
 import { Home } from "src/pages/home";
@@ -37,6 +38,11 @@ export const customerRoutes = [
         name: "book_details",
         path: "/book_details/:slug",
         element: <BookedIndoor />,
+      },
+      {
+        name: "total_booked",
+        path: "/dashboard/total_booked",
+        element: <TotalBooked />,
       },
       {
         name: "*",
