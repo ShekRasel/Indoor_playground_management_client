@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { SecondaryButton } from "src/components/buttons/secondary.button";
 import { BACKEND_API_URL, BACKEND_IMG_URL, getToken } from "src/utils/helper";
 import { toast } from "react-toastify";
@@ -10,6 +10,7 @@ export const BookedIndoor = () => {
   const { slug } = useParams();
   const token = getToken();
   const selectedPlayarea = playAreas.find((playArea) => playArea.NAME === slug);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     bookingDate: "",
@@ -108,6 +109,7 @@ export const BookedIndoor = () => {
         setFormData({ bookingDate: "", timeSlot: "", children: "" });
         setPaymentData({ paymentDate: "", method: "Bkash", status: "Paid" });
         setBookingSuccessData(null); // optional: reset for new booking
+        navigate("/");
       })
       .catch(() => {
         toast.error("Payment failed. Try again.", {

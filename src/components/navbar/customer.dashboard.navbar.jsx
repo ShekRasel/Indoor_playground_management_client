@@ -29,7 +29,7 @@ export const DashboardNavbar = () => {
     { name: "Home", link: "/" },
     { name: "About Us", link: "/dashboard/about" },
     { name: "Contact", link: "/dashboard/contact" },
-    { name: "Profile", link: "/dashboard/profile" },
+    // { name: "Profile", link: "/dashboard/profile" },
   ];
 
   //logout
@@ -99,9 +99,9 @@ export const DashboardNavbar = () => {
         ))}
 
         {/* total booked*/}
-        <Link to="/dashboard/total_booked">
+        {/* <Link to="/dashboard/total_booked">
           <FaClipboardCheck  size={20}/>
-        </Link>
+        </Link> */}
 
         {/* logout button */}
         <SecondaryButton onclick={logout} className="!bg-none">
