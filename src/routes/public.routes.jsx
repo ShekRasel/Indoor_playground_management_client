@@ -7,6 +7,7 @@ import { StaffLogIn } from "src/pages/auth/staff/staff.login";
 import { BookedIndoor } from "src/pages/booking/booked.indoor";
 import { Login } from "src/pages/auth/customer/login";
 import { SignUp } from "src/pages/auth/customer/signup";
+import { Playareas } from "src/pages/playareas";
 
 export const publicRoutes = [
   {
@@ -21,32 +22,37 @@ export const publicRoutes = [
       },
       {
         name: "about",
-        path: "/about",
+        path: "about",
         element: <About />,
       },
       {
         name: "customer_login",
-        path: "/login",
+        path: "login",
         element: <Login />,
       },
       {
         name: "customer_signup",
-        path: "/signup",
+        path: "signup",
         element: <SignUp />,
       },
       {
         name: "staff_login",
-        path: "/staff_login",
+        path: "staff_login",
         element: <StaffLogIn />,
       },
       {
         name: "contact",
-        path: "/contact",
+        path: "contact",
         element: <Contact />,
       },
       {
+        name: "playarea",
+        path: "playareas",
+        element: <Playareas />,
+      },
+      {
         name: "book_details",
-        path: "/book_details/:slug",
+        path: "book_details/:slug",
         element: <BookedIndoor />,
       },
       {

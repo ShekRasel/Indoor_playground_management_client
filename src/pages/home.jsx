@@ -1,7 +1,7 @@
-import { PlaygroundIntroSection } from "src/components/play.ground.section";
 import { Assets } from "src/utils/assets";
 import { About } from "./about";
 import { Contact } from "./contact";
+import { Playareas } from "./playareas";
 
 export const Home = () => {
   return (
@@ -22,7 +22,7 @@ export const Home = () => {
         </div>
       </div>
 
-      <PlaygroundIntroSection />
+      <Playareas />
 
       <About />
 

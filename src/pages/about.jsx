@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { PrimaryButton } from "src/components/buttons/primary.button";
 import { Assets } from "src/utils/assets";
+import { getToken } from "src/utils/helper";
 
 const teamMembers = [
   {
@@ -30,6 +32,7 @@ const teamMembers = [
 ];
 
 export const About = () => {
+  const token = getToken();
   return (
     <div className="px-4 py-10  mx-auto space-y-4 text-gray">
       {/* Header */}
@@ -95,9 +98,15 @@ export const About = () => {
               From toddler zones to teen adventures — we’ve built play areas
               that everyone loves.
             </p>
-            <PrimaryButton className="">
-              Explore Now
-            </PrimaryButton>
+            {token ? (
+              <Link to="/dashboard/playareas">
+                <PrimaryButton className="">Explore Now</PrimaryButton>
+              </Link>
+            ) : (
+              <Link to="/playareas">
+                <PrimaryButton className="">Explore Now</PrimaryButton>
+              </Link>
+            )}
           </div>
         </div>
       </div>

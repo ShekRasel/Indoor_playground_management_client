@@ -5,27 +5,22 @@ import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa6";
 import { SecondaryButton } from "src/components/buttons/secondary.button";
 
-export const PlaygroundIntroSection = () => {
+export const Playareas = () => {
   const [playAreas, setPlayAreas] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
       .get(`${BACKEND_API_URL}/playareas`)
       .then((response) => {
         setPlayAreas(response.data);
-        setError(null);
       })
       .catch((err) => {
         console.error(err);
-        setError("Error fetching play areas");
-      })
-      .finally(() => setLoading(false));
+      });
   }, []);
 
   return (
-    <div className="space-y-4 lg:space-y-4">
+    <div className="space-y-4 lg:space-y-4 mt-10">
       <h1 className="text-center text-xl lg:text-2xl font-semibold text-pink">
         Explore Our Spacious and Safe Indoor Playground Areas
       </h1>

@@ -18,8 +18,9 @@ export const Navbar = () => {
 
   const navUrl = [
     { name: "Home", link: "/" },
-    { name: "About Us", link: "/about" },
+    { name: "About Us", link: "about" },
     { name: "Contact", link: "/contact" },
+    { name: "Playarea", link: "/playareas" },
     { name: "Customer LogIn", link: "/login" },
     { name: "Staff Login", link: "/staff_login" },
   ];
@@ -67,12 +68,12 @@ export const Navbar = () => {
       />
 
       {/* desktop view */}
-      <div className="gap-2 hidden lg:flex">
+      <div className="gap-1 hidden lg:flex">
         {navUrl.map((url) => (
           <NavLink
             to={url.link}
             className={({ isActive }) =>
-              `cursor-pointer px-6 py-3 hover:rounded-lg hover:bg-pink hover:text-white ${
+              `cursor-pointer px-3 py-2 hover:rounded-lg hover:bg-pink hover:text-white ${
                 isActive ? "bg-violet text-white rounded-lg" : "text-gray"
               }`
             }

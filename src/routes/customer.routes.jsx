@@ -6,6 +6,7 @@ import { TotalBooked } from "src/pages/booking/total.booked";
 import { Contact } from "src/pages/contact";
 // import { BookedIndoor } from "src/pages/booking/booked.indoor";
 import { Home } from "src/pages/home";
+import { Playareas } from "src/pages/playareas";
 import { Profile } from "src/pages/profile";
 
 export const customerRoutes = [
@@ -33,6 +34,11 @@ export const customerRoutes = [
         name: "contact",
         path: "/dashboard/contact",
         element: <Contact />,
+      },
+      {
+        name: "playareas",
+        path: "/dashboard/playareas",
+        element: <Playareas />,
       },
       {
         name: "book_details",

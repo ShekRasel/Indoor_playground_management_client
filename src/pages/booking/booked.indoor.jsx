@@ -109,7 +109,7 @@ export const BookedIndoor = () => {
         setFormData({ bookingDate: "", timeSlot: "", children: "" });
         setPaymentData({ paymentDate: "", method: "Bkash", status: "Paid" });
         setBookingSuccessData(null); // optional: reset for new booking
-        navigate("/");
+        navigate("/dashboard/playareas");
       })
       .catch(() => {
         toast.error("Payment failed. Try again.", {
@@ -217,7 +217,7 @@ export const BookedIndoor = () => {
           // Payment Form
           <div className="bg-white rounded-lg shadow-lg p-6 lg:p-10">
             <h2 className="text-2xl font-bold text-green-600 mb-6 text-center">
-              Complete Your Payment
+              Please Complete Your Payment
             </h2>
             <form onSubmit={handlePaymentSubmit} className="space-y-6">
               <div>

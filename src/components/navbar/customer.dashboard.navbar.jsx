@@ -29,7 +29,7 @@ export const DashboardNavbar = () => {
     { name: "Home", link: "/" },
     { name: "About Us", link: "/dashboard/about" },
     { name: "Contact", link: "/dashboard/contact" },
-    // { name: "Profile", link: "/dashboard/profile" },
+    { name: "Playarea", link: "/dashboard/playareas" },
   ];
 
   //logout
