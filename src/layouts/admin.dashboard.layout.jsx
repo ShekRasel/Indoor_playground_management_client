@@ -49,7 +49,7 @@ const AdminSidebar = () => {
           to="/admin/dashboard"
           end
           className={({ isActive }) =>
-            `flex gap-4 items-center ${isActive ? "text-violet" : "text-white"}`
+            `flex gap-4 items-center ${isActive ? "text-green-500" : "text-white"}`
           }
         >
           <MdDashboard size={20} />
@@ -59,7 +59,7 @@ const AdminSidebar = () => {
         <NavLink
           to="/admin/dashboard/customers"
           className={({ isActive }) =>
-            `flex gap-4 items-center ${isActive ? "text-violet" : "text-white"}`
+            `flex gap-4 items-center ${isActive ? "text-green-500" : "text-white"}`
           }
         >
           <FaUserFriends size={20} />
@@ -69,7 +69,7 @@ const AdminSidebar = () => {
         <NavLink
           to="/admin/dashboard/staff"
           className={({ isActive }) =>
-            `flex gap-4 items-center ${isActive ? "text-violet" : "text-white"}`
+            `flex gap-4 items-center ${isActive ? "text-green-500" : "text-white"}`
           }
         >
           <MdManageAccounts size={20} />
@@ -79,7 +79,7 @@ const AdminSidebar = () => {
         <NavLink
           to="/admin/dashboard/profile"
           className={({ isActive }) =>
-            `flex gap-4 items-center ${isActive ? "text-violet" : "text-white"}`
+            `flex gap-4 items-center ${isActive ? "text-green-500" : "text-white"}`
           }
         >
           <FaUserCircle size={20} />
