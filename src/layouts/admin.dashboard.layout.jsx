@@ -63,7 +63,7 @@ const AdminSidebar = () => {
           }
         >
           <FaUserFriends size={20} />
-          <span className="hidden lg:block">Customer</span>
+          <span className="hidden lg:block">Customers</span>
         </NavLink>
 
         <NavLink
@@ -73,7 +73,7 @@ const AdminSidebar = () => {
           }
         >
           <MdManageAccounts size={20} />
-          <span className="hidden lg:block">Staff</span>
+          <span className="hidden lg:block">Manage Staff</span>
         </NavLink>
 
         <NavLink

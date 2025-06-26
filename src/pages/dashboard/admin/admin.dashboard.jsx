@@ -12,7 +12,7 @@ export const AdminDashboard = () => {
   const { customers, loading: loadingCustomers } = useCustomers();
   const { staffList, loading: loadingStaff } = useStaff();
   const { bookingStaffs, loading: loadingBookingStaffs } = useBookingStaff();
-  const { shedules, loading: loadingSchedules } = useStaffSchedules();
+  const { schedules, loading: loadingSchedules } = useStaffSchedules();
 
   const { responsibilities, loading: loadingResponsibility } =
     useResponsibilities();
@@ -69,7 +69,7 @@ export const AdminDashboard = () => {
           {loadingSchedules ? (
             <p>Loading schedules...</p>
           ) : (
-            <DataTable columns={scheduleColumns} data={shedules} />
+            <DataTable columns={scheduleColumns} data={schedules} />
           )}
         </div>
 
