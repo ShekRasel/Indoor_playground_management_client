@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { BACKEND_API_URL, BACKEND_IMG_URL } from "src/utils/helper";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa6";
 import { SecondaryButton } from "src/components/buttons/secondary.button";
 
@@ -19,6 +19,10 @@ export const Playareas = () => {
       });
   }, []);
 
+  const location = useLocation();
+  const itemsToShow =
+    location.pathname !== "/playareas" ? playAreas.slice(0, 4) : playAreas;
+
   return (
     <div className="space-y-4 lg:space-y-4 mt-10">
       <h1 className="text-center text-xl lg:text-2xl font-semibold text-pink">
@@ -31,32 +35,49 @@ export const Playareas = () => {
       </h1>
 
       <div className="grid lg:grid-cols-2 gap-8 text-gray mt-8">
-        {playAreas.map((playArea) => (
-          <div key={playArea.PLAYAREAID} className="bg-black rounded-lg">
+        {itemsToShow.map((playArea) => (
+          <div
+            key={playArea.PLAYAREAID}
+            className="bg-black rounded-2xl overflow-hidden shadow-xl"
+          >
+            {/* Image */}
             <div
-              className="h-56 rounded-t-lg w-full bg-cover bg-no-repeat"
+              className="h-56 w-full bg-cover bg-center"
               style={{
                 backgroundImage: `url(${BACKEND_IMG_URL}${playArea.IMAGEURL})`,
               }}
             />
-            <div className="p-4 lg:p-8 space-y-4">
-              <h1 className="font-semibold text-pink text-xl">
-                {playArea.NAME}
-              </h1>
-              <p>
-                <span className="font-semibold text-white">Capacity:</span>{" "}
-                {playArea.CAPACITY} children
+
+            {/* Content */}
+            <div className="p-6 lg:p-8 space-y-5">
+              {/* Name */}
+              <h2 className="text-2xl text-pink font-bold">{playArea.NAME}</h2>
+
+              {/* Description */}
+              <p className="text-md leading-relaxed text-gray-300 text-justify">
+                {playArea.DESCRIPTION}
               </p>
-              <p>
-                <span className="font-semibold text-white">Rate/Hour:</span> ৳
-                {playArea.RATEPERHOUR}
-              </p>
-              {playArea.DISCOUNTRATE > 0 && (
-                <p className="text-green-400 font-medium">
-                  🎉 {playArea.DISCOUNTRATE}% Discount Available!
-                </p>
-              )}
-              <div className="flex justify-end">
+
+              {/* Info Grid */}
+              <div className="flex justify-between text-white mt-4">
+                <div>
+                  <span className="font-semibold">Capacity:</span>{" "}
+                  {playArea.CAPACITY} children
+                </div>
+                <div>
+                  <span className="font-semibold">Rate/Hour:</span> ৳
+                  {playArea.RATEPERHOUR}
+                </div>
+              </div>
+
+              {/* Book Button discount */}
+              <div className="flex justify-between items-center">
+                {playArea.DISCOUNTRATE > 0 && (
+                  <div className="col-span-2 text-green-400 font-medium">
+                    🎉 {playArea.DISCOUNTRATE}% Discount Available!
+                  </div>
+                )}
+
                 <Link to={`/book_details/${playArea.NAME}`}>
                   <SecondaryButton className="text-sm flex gap-2 items-center">
                     <span>Book Now</span> <FaArrowRight size={16} />

@@ -56,8 +56,8 @@ export const publicRoutes = [
         element: <BookedIndoor />,
       },
       {
-        name: "*",
-        path: "",
+        name: "not_found",
+        path: "*",
         element: <NotFound />,
       },
     ],

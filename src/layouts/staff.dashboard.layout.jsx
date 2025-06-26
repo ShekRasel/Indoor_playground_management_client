@@ -1,6 +1,6 @@
 import React from "react";
-import { FaUserCircle, FaUserFriends } from "react-icons/fa";
-import { MdDashboard, MdManageAccounts } from "react-icons/md";
+import { FaTasks, FaUserCircle } from "react-icons/fa";
+import { MdAssignment, MdDashboard } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
 import { StaffDashboardNavbar } from "src/components/navbar/staff.dashboard.navbar";
 import { Assets } from "src/utils/assets";
@@ -49,7 +49,9 @@ const StaffSidebar = () => {
           to="/staff/dashboard"
           end
           className={({ isActive }) =>
-            `flex gap-4 items-center ${isActive ? "text-violet" : "text-white"}`
+            `flex gap-4 items-center ${
+              isActive ? "text-green-500" : "text-white"
+            }`
           }
         >
           <MdDashboard size={20} />
@@ -59,27 +61,33 @@ const StaffSidebar = () => {
         <NavLink
           to="/staff/dashboard/work"
           className={({ isActive }) =>
-            `flex gap-4 items-center ${isActive ? "text-violet" : "text-white"}`
+            `flex gap-4 items-center ${
+              isActive ? "text-green-500" : "text-white"
+            }`
           }
         >
-          <FaUserFriends size={20} />
-          <span className="hidden lg:block">Work</span>
+          <MdAssignment size={20} />
+          <span className="hidden lg:block">Assaign Work</span>
         </NavLink>
 
         <NavLink
           to="/staff/dashboard/task"
           className={({ isActive }) =>
-            `flex gap-4 items-center ${isActive ? "text-violet" : "text-white"}`
+            `flex gap-4 items-center ${
+              isActive ? "text-green-500" : "text-white"
+            }`
           }
         >
-          <MdManageAccounts size={20} />
+          <FaTasks size={20} />
           <span className="hidden lg:block">Task</span>
         </NavLink>
 
         <NavLink
           to="/staff/dashboard/profile"
           className={({ isActive }) =>
-            `flex gap-4 items-center ${isActive ? "text-violet" : "text-white"}`
+            `flex gap-4 items-center ${
+              isActive ? "text-green-500" : "text-white"
+            }`
           }
         >
           <FaUserCircle size={20} />

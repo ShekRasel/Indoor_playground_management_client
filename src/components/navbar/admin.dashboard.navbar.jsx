@@ -44,7 +44,7 @@ export const AdminDashboardNavbar = () => {
       {dropdownOpen && (
         <div
           ref={dropdownRef}
-          className="absolute right-0 mt-10 w-48 bg-darkBlue rounded-md shadow-lg border border-gray z-50 py-4"
+          className="absolute right-0 mt-10 w-52 bg-darkBlue rounded-md shadow-lg border border-gray z-50 py-4 px-2"
         >
           <Link
             to="/admin/dashboard/profile"
