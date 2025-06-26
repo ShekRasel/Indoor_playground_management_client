@@ -4,6 +4,7 @@ import axios from "axios";
 import { BACKEND_API_URL, getToken } from "src/utils/helper";
 import { toast } from "react-toastify";
 import {
+  useBookingStaff,
   usePlayAreas,
   useResponsibilities,
   useRoles,
@@ -23,9 +24,16 @@ export const Staff = () => {
     responsibilities,
     loading: loadingResponsibility,
     deleteResponsibility,
+    fetchResponsibilities,
+    addResponsibility,
   } = useResponsibilities();
+  const {
+    bookingStaffs,
+    loading: loadingBookingStaffs,
+    fetchBookingStaffs,
+  } = useBookingStaff();
 
-  //staff
+  //========staff==============
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this staff?")) return;
 
@@ -51,7 +59,7 @@ export const Staff = () => {
     { header: "Username", accessor: "USERNAME" },
   ];
 
-  //sheduls
+  //============sheduls============
   const deleteSchedule = async (id) => {
     try {
       const token = getToken();
@@ -67,7 +75,7 @@ export const Staff = () => {
   };
 
   const scheduleColumns = [
-    { header: "Schedule ID", accessor: "SCHEDULEID" },
+    { header: "ID", accessor: "SCHEDULEID" },
     { header: "Staff", accessor: "STAFFNAME" },
     { header: "Play Area", accessor: "PLAYAREANAME" },
     {
@@ -78,7 +86,7 @@ export const Staff = () => {
     { header: "Time", accessor: "SHIFTTIME" },
   ];
 
-  //resposisibilty
+  //=======resposisibilty============
   const resposisibiltyColumns = [
     { header: "ID", accessor: "RESPONSIBILITYID" },
     { header: "Role ID", accessor: "ROLEID" },
@@ -86,13 +94,41 @@ export const Staff = () => {
     { header: "Responsibility", accessor: "RESPONSIBILITYTEXT" },
   ];
 
+  //======assign staff to booking========
+  const deleteBooingStaff = async (id) => {
+    try {
+      const token = getToken();
+      await axios.delete(`${BACKEND_API_URL}/booking-staff/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      toast.success("Booked Staff deleted");
+      fetchBookingStaffs();
+    } catch (err) {
+      toast.error("Delete failed");
+      console.error(err);
+    }
+  };
+
+  const bookingStaffColumns = [
+    { header: "ID", accessor: "BOOKINGSTAFFID" },
+    { header: "Booking ID", accessor: "BOOKINGID" },
+    { header: "Staff ID", accessor: "STAFFID" },
+    { header: "Staff Name", accessor: "STAFFNAME" },
+  ];
+
   return (
     <div className="p-4 min-h-screen text-white mx-auto space-y-4">
       <div className="grid lg:grid-cols-3 2xl:grid-cols-4 gap-4">
-        <RegisterStaff />
-        <BookingAssignForm staffList={staffList} />
-        <StaffSchedule />
-        <ResponsibilitiesForm />
+        <RegisterStaff fetchStaff={fetchStaff} />
+        <BookingAssignForm
+          staffList={staffList}
+          fetchBookingStaffs={fetchBookingStaffs}
+        />
+        <StaffSchedule fetchSchedules={fetchSchedules} />
+        <ResponsibilitiesForm
+          fetchResponsibilities={fetchResponsibilities}
+          addResponsibility={addResponsibility}
+        />
       </div>
 
       <div>
@@ -136,13 +172,26 @@ export const Staff = () => {
           />
         )}
       </div>
+
+      <div className="space-y-2">
+        <h1 className="text-xl font-bold">Assigned Staff to Bookings</h1>
+        {loadingBookingStaffs ? (
+          <p>Loading...</p>
+        ) : (
+          <DataTable
+            columns={bookingStaffColumns}
+            data={bookingStaffs}
+            showDelete={true}
+            onDelete={deleteBooingStaff}
+          />
+        )}
+      </div>
     </div>
   );
 };
 
-//staff registration
-const RegisterStaff = () => {
-  const { fetchStaff } = useStaff();
+//=========================staff registration===============================
+const RegisterStaff = ({ fetchStaff }) => {
   const { roles } = useRoles();
   const {
     register,
@@ -169,7 +218,7 @@ const RegisterStaff = () => {
         roleId: selectedRole.ROLEID,
       };
 
-      // Remove roleTitle from payload as backend expects roleId
+      // Remove roleTitle
       delete payload.roleTitle;
 
       await axios.post(`${BACKEND_API_URL}/staff/signup`, payload, {
@@ -292,14 +341,13 @@ const RegisterStaff = () => {
   );
 };
 
-//staff booking
-const BookingAssignForm = ({ staffList }) => {
+//==================staff booking=====================
+const BookingAssignForm = ({ staffList, fetchBookingStaffs }) => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [bookingId, setBookingId] = useState("");
   const [staffId, setStaffId] = useState("");
 
-  // Fetch bookings from backend
   useEffect(() => {
     const fetchBookings = async () => {
       try {
@@ -339,6 +387,7 @@ const BookingAssignForm = ({ staffList }) => {
       });
       setBookingId("");
       setStaffId("");
+      fetchBookingStaffs();
     } catch (err) {
       toast.error("Failed to assign staff to booking", {
         position: "top-right",
@@ -403,11 +452,10 @@ const BookingAssignForm = ({ staffList }) => {
   );
 };
 
-//shedule add
-const StaffSchedule = () => {
+//====================shedule add==============================
+const StaffSchedule = ({ fetchSchedules }) => {
   const { staffList } = useStaff();
   const { playAreas } = usePlayAreas();
-  const { fetchSchedules } = useStaffSchedules();
   const {
     register,
     handleSubmit,
@@ -523,9 +571,8 @@ const StaffSchedule = () => {
   );
 };
 
-//responsibility
-const ResponsibilitiesForm = () => {
-  const { addResponsibility } = useResponsibilities();
+//=======================responsibility=======================
+const ResponsibilitiesForm = ({ fetchResponsibilities, addResponsibility }) => {
   const { roles } = useRoles();
   const {
     register,
@@ -540,6 +587,7 @@ const ResponsibilitiesForm = () => {
       text: data.text,
     });
     reset();
+    fetchResponsibilities();
   };
 
   return (
