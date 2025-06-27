@@ -11,47 +11,47 @@ import { Playareas } from "src/pages/playareas";
 
 export const publicRoutes = [
   {
-    name: "mainlayout",
+    name: "Mainlayout",
     path: "/",
     element: <MainLayout />,
     children: [
       {
-        name: "home",
+        name: "Home",
         path: "",
         element: <Home />,
       },
       {
-        name: "about",
+        name: "About",
         path: "about",
         element: <About />,
       },
       {
-        name: "customer_login",
+        name: "Customer Login",
         path: "login",
         element: <Login />,
       },
       {
-        name: "customer_signup",
+        name: "Customer Signup",
         path: "signup",
         element: <SignUp />,
       },
       {
-        name: "staff_login",
+        name: "Staff Login",
         path: "staff_login",
         element: <StaffLogIn />,
       },
       {
-        name: "contact",
+        name: "Contact",
         path: "contact",
         element: <Contact />,
       },
       {
-        name: "playarea",
+        name: "Playareas",
         path: "playareas",
         element: <Playareas />,
       },
       {
-        name: "book_details",
+        name: "Book Details",
         path: "book_details/:slug",
         element: <BookedIndoor />,
       },

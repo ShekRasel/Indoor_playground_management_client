@@ -69,18 +69,21 @@ export const About = () => {
       </div>
 
       {/* explore seciton */}
-      <div className="space-y-4 mt-12 lg:mt-20">
-        <h1 className="text-center text-2xl  font-bold text-gray">
-          Explore Our Play Area
-        </h1>
-        <p className="text-center max-w-3xl mx-auto text-lg leading-relaxed">
-          Step into a world of fun! Our indoor play areas are thoughtfully
-          designed to spark imagination, encourage physical activity, and ensure
-          maximum safety. Whether your child loves climbing, sliding, or
-          creative role-play — we have dedicated zones to suit all interests and
-          ages. Supervised by trained staff, our spaces offer both freedom and
-          protection.
-        </p>
+      <div className="space-y-4 mt-12 lg:mt-20 grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="h-full flex flex-col justify-center space-y-4">
+          <h1 className="text-center text-2xl  font-bold text-gray">
+            Explore Our Play Area
+          </h1>
+          <p className="max-w-3xl mx-auto text-lg leading-relaxed text-justify  ">
+            Step into a world of fun! Our indoor play areas are thoughtfully
+            designed to spark imagination, encourage physical activity, and
+            ensure maximum safety. Whether your child loves climbing, sliding,
+            or creative role-play — we have dedicated zones to suit all
+            interests and ages. Supervised by trained staff, our spaces offer
+            both freedom and protection.
+          </p>
+        </div>
+
         <div
           className="rounded-2xl h-66 lg:h-[500px] flex place-items-end p-4 lg:p-10"
           style={{

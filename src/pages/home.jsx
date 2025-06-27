@@ -15,10 +15,16 @@ export const Home = () => {
         }}
         className="rounded-2xl h-66 lg:h-96 flex place-items-end p-4 lg:p-10"
       >
-        <div className="bg-opacity-50  rounded-md text-white text-xl lg:text-4xl font-semibold text-center tracking-wider">
-          Streamline Indoor Game Scheduling and Customer Management with Ease —
-          Simplify Bookings, Track Attendance, and Enhance Player Experiences
-          All in One Place
+        <div className="bg-opacity-50 space-y-4 rounded-md text-white font-semibold text-center tracking-wider w-full">
+          <p className="text-2xl lg:text-5xl  text-yellow-500 text-center">
+            Streamline Indoor Game Scheduling and Customer
+          </p>
+          <p className="text-xl lg:text-4xl text-yellow-500 text-center">
+            Management with Ease Simplify Bookings,{" "}
+          </p>
+          <p className="text-lg lg:text-3xl text-yellow-500 text-center">
+            Track Attendance, and Enhance Player Experiences All in One Place
+          </p>
         </div>
       </div>
 

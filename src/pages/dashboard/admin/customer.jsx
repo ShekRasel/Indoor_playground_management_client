@@ -3,7 +3,7 @@ import axios from "axios";
 import { BACKEND_API_URL, getToken } from "src/utils/helper";
 import { toast } from "react-toastify";
 import { useCustomers, usePayments } from "src/hooks/fetch.data";
-import { DataTable } from "src/components/table/data.table";
+import { DataTable } from "src/components/tables/data.table";
 
 export const Customer = () => {
   const { customers, loading, fetchCustomers } = useCustomers();

@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { AuthSideBanner } from "src/components/auth.side.banner";
+import { AuthSideBanner } from "src/components/banners/auth.side.banner";
 import { SecondaryButton } from "src/components/buttons/secondary.button";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";

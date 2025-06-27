@@ -25,7 +25,7 @@ export const Playareas = () => {
 
   return (
     <div className="space-y-4 lg:space-y-4 mt-10">
-      <h1 className="text-center text-xl lg:text-2xl font-semibold text-pink">
+      <h1 className="text-center text-xl lg:text-4xl font-bold text-pink">
         Explore Our Spacious and Safe Indoor Playground Areas
       </h1>
       <h1 className="text-gray text-center font-semibold max-w-xl place-items-center mx-auto">

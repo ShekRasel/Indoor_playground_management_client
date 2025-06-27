@@ -4,6 +4,18 @@ import { Assets } from "src/utils/assets";
 export const Contact = () => {
   return (
     <div className="px-4 py-10  mx-auto space-y-16 text-gray">
+      {/* Middle: Contact Text */}
+      <div className="space-y-4 text-center">
+        <h1 className="text-2xl lg:text-4xl font-bold text-pink">
+          Get in Touch With Us
+        </h1>
+        <p className="text-lg max-w-3xl mx-auto leading-relaxed">
+          Have questions about our indoor playground, events, or bookings? We're
+          here to help! Fill out the form below and our team will get back to
+          you as soon as possible.
+        </p>
+      </div>
+      
       {/* Top: 3 Pictures */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <img
@@ -16,18 +28,6 @@ export const Contact = () => {
           alt="Indoor Play 2"
           className="w-full h-64 object-cover rounded-lg"
         />
-      </div>
-
-      {/* Middle: Contact Text */}
-      <div className="space-y-4 text-center">
-        <h1 className="text-2xl lg:text-4xl font-bold text-pink">
-          Get in Touch With Us
-        </h1>
-        <p className="text-lg max-w-3xl mx-auto leading-relaxed">
-          Have questions about our indoor playground, events, or bookings? We're
-          here to help! Fill out the form below and our team will get back to
-          you as soon as possible.
-        </p>
       </div>
 
       {/* Bottom: Contact Form */}

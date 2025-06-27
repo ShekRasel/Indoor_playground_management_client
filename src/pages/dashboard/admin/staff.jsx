@@ -11,7 +11,7 @@ import {
   useStaff,
   useStaffSchedules,
 } from "src/hooks/fetch.data";
-import { DataTable } from "src/components/table/data.table";
+import { DataTable } from "src/components/tables/data.table";
 
 export const Staff = () => {
   const { staffList, loading, fetchStaff } = useStaff();
