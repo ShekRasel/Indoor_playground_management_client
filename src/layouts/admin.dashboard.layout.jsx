@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { AdminDashboardNavbar } from "src/components/navbar/admin.dashboard.navbar";
 import { Assets } from "src/utils/assets";
-import { FaUserCircle, FaUserFriends } from "react-icons/fa";
+import { FaUserCircle, FaUserFriends, FaUserShield } from "react-icons/fa";
 import { MdDashboard, MdManageAccounts } from "react-icons/md";
 
 export const AdminDashboardLayout = () => {
@@ -49,7 +49,9 @@ const AdminSidebar = () => {
           to="/admin/dashboard"
           end
           className={({ isActive }) =>
-            `flex gap-4 items-center ${isActive ? "text-green-500" : "text-white"}`
+            `flex gap-4 items-center ${
+              isActive ? "text-green-500" : "text-white"
+            }`
           }
         >
           <MdDashboard size={20} />
@@ -59,7 +61,9 @@ const AdminSidebar = () => {
         <NavLink
           to="/admin/dashboard/customers"
           className={({ isActive }) =>
-            `flex gap-4 items-center ${isActive ? "text-green-500" : "text-white"}`
+            `flex gap-4 items-center ${
+              isActive ? "text-green-500" : "text-white"
+            }`
           }
         >
           <FaUserFriends size={20} />
@@ -69,7 +73,9 @@ const AdminSidebar = () => {
         <NavLink
           to="/admin/dashboard/staff"
           className={({ isActive }) =>
-            `flex gap-4 items-center ${isActive ? "text-green-500" : "text-white"}`
+            `flex gap-4 items-center ${
+              isActive ? "text-green-500" : "text-white"
+            }`
           }
         >
           <MdManageAccounts size={20} />
@@ -77,9 +83,23 @@ const AdminSidebar = () => {
         </NavLink>
 
         <NavLink
+          to="/admin/dashboard/roles"
+          className={({ isActive }) =>
+            `flex gap-4 items-center ${
+              isActive ? "text-green-500" : "text-white"
+            }`
+          }
+        >
+          <FaUserShield size={20} />
+          <span className="hidden lg:block">Create Roles</span>
+        </NavLink>
+
+        <NavLink
           to="/admin/dashboard/profile"
           className={({ isActive }) =>
-            `flex gap-4 items-center ${isActive ? "text-green-500" : "text-white"}`
+            `flex gap-4 items-center ${
+              isActive ? "text-green-500" : "text-white"
+            }`
           }
         >
           <FaUserCircle size={20} />

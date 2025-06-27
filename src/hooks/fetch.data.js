@@ -190,23 +190,27 @@ export const useRoles = () => {
   const [roles, setRoles] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchRoles = async () => {
-      setLoading(true);
-      try {
-        const res = await axios.get(`${BACKEND_API_URL}/roles`);
-        setRoles(res.data);
-      } catch (err) {
-        console.error("Failed to load roles", err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchRoles = async () => {
+    setLoading(true);
+    try {
+      const token = getToken();
+      const res = await axios.get(`${BACKEND_API_URL}/roles`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setRoles(res.data);
+    } catch (err) {
+      console.error("Failed to load roles", err);
+      toast.error("Failed to fetch roles");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchRoles();
+  useEffect(() => {
+    fetchRoles(); // auto fetch on load
   }, []);
 
-  return { roles, loading };
+  return { roles, loading, fetchRoles };
 };
 
 export const usePayments = () => {
