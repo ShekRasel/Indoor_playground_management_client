@@ -96,7 +96,7 @@ export const Roles = () => {
         </div>
         <button
           type="submit"
-          className="bg-yellow text-darkblue font-semibold px-6 py-2 rounded-md hover:bg-yellow/80 transition"
+          className="bg-yellow text-darkblue font-semibold px-6 py-2 rounded-md hover:bg-yellow/80 transition hover:border cursor-pointer"
         >
           Create Role
         </button>
@@ -136,7 +136,7 @@ export const Roles = () => {
                       <>
                         <button
                           onClick={() => handleUpdate(role.ROLEID)}
-                          className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
+                          className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 cursor-pointer"
                         >
                           Save
                         </button>
@@ -145,7 +145,7 @@ export const Roles = () => {
                             setEditingId(null);
                             setEditTitle("");
                           }}
-                          className="bg-gray-400 text-white px-3 py-1 rounded hover:bg-gray-500"
+                          className="bg-gray-400 text-white px-3 py-1 rounded hover:bg-gray-500 cursor-pointer"
                         >
                           Cancel
                         </button>

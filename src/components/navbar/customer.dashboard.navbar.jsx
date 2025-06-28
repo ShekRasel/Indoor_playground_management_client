@@ -58,13 +58,17 @@ export const DashboardNavbar = () => {
                   }`
                 }
                 key={nav.name}
+                onClick={handleMenuOpenClose}
               >
                 {nav.name}
               </NavLink>
             ))}
 
             {/* logout button */}
-            <button onClick={logout} className="cursor-pointer">
+            <button
+              onClick={logout}
+              className="cursor-pointer hover:text-white"
+            >
               Logout
             </button>
           </div>
@@ -96,7 +100,7 @@ export const DashboardNavbar = () => {
         ))}
 
         {/* logout button */}
-        <button onClick={logout} className="cursor-pointer">
+        <button onClick={logout} className="cursor-pointer hover:text-white">
           Logout
         </button>
       </div>
